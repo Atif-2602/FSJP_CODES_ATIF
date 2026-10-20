@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Exp 5: Servlets mapped via @WebServlet annotations -->
+<!-- Name: Qureshi Atif Meraj Alam | UIN: 251P004 -->
+<web-app xmlns="http://jakarta.ee/xml/ns/jakartaee" version="5.0">
+</web-app>
