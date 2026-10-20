@@ -1,0 +1,59 @@
+<!-- Exp 10: React Hooks — CDN version (no build tools required) -->
+<!-- React aur ReactDOM UMD builds + Babel standalone se direct browser mein chalta hai -->
+<!-- Name: Qureshi Atif Meraj Alam | UIN: 251P004 | Class: S.E.Computer A -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exp 10 - React Hooks (CDN)</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        function App() {
+            // useState Hook: stores the selected color (initially none)
+            const [selectedColor, setSelectedColor] = useState("");
+
+            const handleClick = (color) => {
+                setSelectedColor(color);
+            };
+
+            return (
+                <div style={{ fontFamily: "Arial, sans-serif", textAlign: "center", marginTop: "80px" }}>
+                    <h1>Exp 10 - React Hooks (useState)</h1>
+                    <h2>Qureshi Atif Meraj Alam | UIN: 251P004</h2>
+
+                    <div style={{ marginTop: "30px" }}>
+                        <button style={btn("#e74c3c")} onClick={() => handleClick("Red")}>Red</button>
+                        <button style={btn("#3498db")} onClick={() => handleClick("Blue")}>Blue</button>
+                        <button style={btn("#27ae60")} onClick={() => handleClick("Green")}>Green</button>
+                        <button style={btn("#f1c40f", "#333")}>Yellow</button>
+                    </div>
+
+                    {selectedColor !== "" && (
+                        <h2 style={{ color: selectedColor.toLowerCase() }}>
+                            You selected {selectedColor}
+                        </h2>
+                    )}
+                </div>
+            );
+        }
+
+        function btn(background, color = "white") {
+            return {
+                background, color, border: "none", padding: "12px 30px",
+                margin: "8px", fontSize: "16px", borderRadius: "6px", cursor: "pointer",
+            };
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+</body>
+</html>
